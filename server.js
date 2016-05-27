@@ -1,25 +1,24 @@
-/*eslint-disable*/
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import config from './webpack.config';
+import Express from 'express';
 
-var webpack = require('webpack');
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
-var config = require('./webpack.config');
+const app = new Express();
+const port = 3000;
 
-var app = new require('express')();
-var port = 3000;
-
-var compiler = webpack(config);
+const compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
 app.use(webpackHotMiddleware(compiler));
 
-app.get("/", function(req, res) {
+app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.listen(port, function(error) {
+app.listen(port, (error) => {
   if (error) {
-    console.error(error);
+    console.error(error); // eslint-disable-line
   } else {
-    console.info("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port);
+    console.info('==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port); // eslint-disable-line
   }
 });
