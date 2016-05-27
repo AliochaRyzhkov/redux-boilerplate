@@ -47,6 +47,12 @@
     "redbox-react": "^1.2.0",
     "webpack": "^1.9.11",
     "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.2.0"
+    "webpack-hot-middleware": "^2.2.0",
+    "style-loader": "~0.13.1",
+    "postcss-loader": "~0.9.1",
+    "css-loader": "~0.23.1",
+    "node-sass": "~3.7.0",
+    "sass-loader": "~3.2.0",
+    "autoprefixer": "~6.3.6"
   }
 }

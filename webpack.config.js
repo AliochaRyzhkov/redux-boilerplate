@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+import autoprefixer from 'autoprefixer';
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -23,8 +24,12 @@ module.exports = {
       loaders: ['babel'],
       exclude: /node_modules/,
       include: __dirname,
+    }, {
+      test: /\.scss$/,
+      loader: 'style!css?modules&importLoaders=2&localIdentName=[name]__[local]_[hash:base64:3]!postcss',
     }],
   },
+  postcss: [autoprefixer],
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
